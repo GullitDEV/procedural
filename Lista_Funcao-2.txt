@@ -1,0 +1,833 @@
+/*
+1. Crie uma função que recebe como parâmetro um número inteiro e devolve o seu dobro.  
+*/
+
+#include <stdio.h>
+
+int numeroInteiro(int numero);
+
+int main() {
+
+    int numero;
+
+    scanf("%d", &numero);
+    printf("%d ",numeroInteiro(numero));  
+    return 0;
+}
+
+int numeroInteiro(int numero){
+  return 2*numero;
+}
+---------------------------------------------------------------------------------------
+/*
+2. Faça uma função que receba a data atual (dia, mês e ano em inteiro) e exiba-a na tela no
+formato textual por extenso. 
+Data: 18/11/2022, Imprimir: 18 de novembro de 2022.
+*/
+
+
+#include <stdio.h>
+
+int mesGeral (int mes);
+
+int main(){
+
+    int dia, mes, ano;
+
+    printf("\n Digite uma data\n");
+    printf("\n Dia: ");
+    scanf("%d", &dia);
+    printf("\n Mes: ");
+    scanf("%d", &mes);
+    printf("\n Ano: ");
+    scanf("%d", &ano);
+
+    printf("\n %d de ", dia);
+    mesGeral(mes);
+    printf(" %d ", ano);
+
+    return 0;
+}
+
+int mesGeral (int mes) {
+  
+    switch(mes) {
+    case 1:
+        printf(" Janeiro ");
+        break;
+    case 2:
+        printf(" Fevereiro ");
+        break;
+    case 3:
+        printf(" Marco ");
+        break;
+    case 4:
+        printf(" Abril ");
+        break;
+    case 5:
+        printf(" Maio ");
+        break;
+    case 6:
+        printf(" Junho ");
+        break;
+    case 7:
+        printf(" Julho ");
+        break;
+    case 8:
+        printf(" Agosto ");
+        break;
+    case 9:
+        printf(" Setembro ");
+        break;
+    case 10:
+        printf(" Outubro ");
+        break;
+    case 11:
+        printf(" Novembro ");
+        break;
+    case 12:
+        printf(" Dezembro ");
+        break;
+    default:
+        printf(" Mês Inválido ");
+    }
+}
+  
+.....................................................................................
+/*
+3. Faça uma função para verificar se um número é positivo ou negativo. Sendo que o valor de retorno 
+será 1 se positivo, -1 se negativo e 0 se for igual a 0. 
+*/
+
+#include <stdio.h>
+
+int numeroPositivo(int numero);
+int numeroNegativo(int numeroDois);
+int numeroNeutro(int numeroNeutro);
+
+
+
+int main() {
+
+    int numero;
+
+    scanf("%d", &numero);
+
+    if(numero>0){
+    printf("%d ",numeroPositivo(numero)); 
+    }else if(numero<0){
+    printf("%d ",numeroNegativo(numero)); 
+    }else{
+    printf("%d ",numeroNeutro(numero)); 
+    }
+    return 0;
+}
+
+int numeroPositivo(int numero){
+  if(numero>0)
+    printf("\nNumero Positivo --> return: ");
+  return 1;
+}
+
+int numeroNegativo(int numeroDois){
+  if(numeroDois<0)
+    printf("\nNumero Negativo --> return: ");
+  return -1;
+}
+
+int numeroNeutro(int numeroNeutro){
+  
+  if(numeroNeutro==0)
+    printf("\nNumero Positivo --> return: ");
+  return 0;
+}
+
+-------------------------------------------------------------------------------------------------
+/*
+4. Faça uma função para verificar se um número é um quadrado perfeito. Um quadrado
+perfeito é um número inteiro não negativo que pode ser expresso como o quadrado de
+outro número inteiro. Ex: 1, 4, 9...
+*/
+
+#include <stdio.h>
+#include <math.h>
+
+int quadrado(int valor);
+
+int main(){
+
+    int valor;
+
+    printf("\nDigite um numero: ");
+    scanf("%d", &valor);
+
+    quadrado(valor);
+
+    return 0;
+}
+
+int quadrado(int valor) {
+    
+    int raizQuadrada = 0.0;
+
+    raizQuadrada = sqrt(valor);
+
+        if((valor > 0) && ((pow(raizQuadrada,2)) == valor)) {
+            printf("\n Quadrado perfeito.");
+        } else {
+            printf("\n Nao é quadrado perfeito.");
+        }
+
+    return 0;
+}
+-------------------------------------------------------------------------------------------------
+/*
+5. Faça uma função e um programa de teste para o cálculo do volume de uma esfera. Sendo
+que o raio é passado por parâmetro.
+*/
+
+#include <stdio.h>
+#include <math.h>
+const float PI = 3.1415;
+
+float esfera(float raio);
+void recebeValor();
+
+
+int main(){
+
+    float raio;
+    
+    recebeValor();
+    esfera(raio);
+
+    return 0;
+}
+
+float esfera(float raio){
+    return (4*PI*(pow(raio,3)))/3;
+}
+
+void recebeValor(){
+    
+    float raio = 0, volume = 0 ;
+
+    printf("Digite o raio da esfera: ");
+    scanf("%f", &raio);  
+    volume = esfera(raio);
+    printf("O volume da esfera %.2f", volume);
+}
+-------------------------------------------------------------------------------------------------
+/*
+6. Faça uma função que receba 3 números inteiros como parâmetro, representando horas,
+minutos e segundos, e os converta em segundos.
+*/
+
+
+#include <stdio.h>
+#define MIN 60
+#define SEG 3600
+
+void tempoGeral(int hora, int minuto, int segundo);
+
+int main(){
+
+    int hora, minuto, segundo;
+
+    printf("\n Digite respetivamente: \n Hora \n Minuto \n Segundo \n");
+    scanf("%d%d%d", &hora, &minuto, &segundo);
+
+    tempoGeral(hora, minuto, segundo);
+
+    return 0;
+}
+
+void tempoGeral(int hora, int minuto, int segundo) {
+
+    int valorGeral = 0;
+
+    valorGeral = valorGeral + (hora*SEG) + (minuto*MIN) + segundo;
+
+    printf("%d segundos.", valorGeral);
+}
+
+
+-----------------------------------------------------------------------------------------------
+/*
+7. Faça uma função que receba uma temperatura em graus Celsius e retorne-a convertida em
+graus Fahrenheit. A fórmula de conversão é: ?? = ?? * (9,0/5,0) + 32,0, sendo F a temperatura
+em Fahrenheit e C a temperatura em Celsius.
+*/
+
+
+#include <stdio.h>
+
+float celsiusFahrenheit(float celsius);
+
+int main(){
+
+    float celsius;
+
+    printf("\nDigite uma temperatura em Celsius: ");
+    scanf("%f", &celsius);
+
+    printf("\nTemperatura Fahrenheit: %.2f", celsiusFahrenheit(celsius));
+
+    return 0;
+}
+
+float celsiusFahrenheit(float celsius) {
+    return celsius * (9.0/5.0) + 32.0;
+}
+-----------------------------------------------------------------------------------------------
+/*
+8. Sejam a e b os catetos de um triangulo, onde a hipotenusa é obtida pela equação:
+hipotenusa = v??² + ??². Faça uma função que receba os valores de a e b e calcule o valor
+da hipotenusa através da equação.
+*/
+
+
+#include <stdio.h>
+#include <math.h>
+
+float trianguloRetangulo(float catetoUm, float catetoDois) {
+    return sqrt(pow(catetoUm,2) + pow(catetoDois,2));
+}
+
+void recebeValores(){
+    
+    float catetoUm, catetoDois, hipotenusa;
+
+    printf("Digite os valores dos catetos:\n");
+    printf("\nPrimeiro Cateto: ");
+    scanf("%f", &catetoUm);
+    printf("\nSegundo Cateto: ");
+    scanf("%f", &catetoDois);
+
+    hipotenusa = trianguloRetangulo(catetoUm, catetoDois);
+
+    printf("\nA hipotenusa: %.2f", hipotenusa);
+ 
+}
+
+int main(){
+    
+    float catetoUm, catetoDois;
+    
+    trianguloRetangulo(catetoUm,catetoDois);
+    recebeValores();
+
+    return 0;
+}
+-----------------------------------------------------------------------------------------------
+
+/*
+9. Faça uma função que receba a altura e o raio de um cilindro circular e retorne o volume do
+cilindro. 
+*/
+
+#include <stdio.h>
+#include <math.h>
+const float PI = 3.1415;
+
+float cilindro(float altura, float raio);
+
+int main(){
+
+    float altura, raio ;
+
+    printf("\nAltura: ");
+    scanf("%f", &altura);
+    printf("\nRaio: ");
+    scanf("%f", &raio);
+
+    cilindro(altura, raio);
+
+    printf("\nVolume: %.2f", cilindro(altura, raio));
+
+    return 0;
+}
+
+float cilindro(float altura, float raio) {
+    return PI*pow(raio,2)*altura;
+}
+-----------------------------------------------------------------------------------------------
+/*
+10. Faça uma função que receba dois números e retorne qual deles é o maior.
+*/
+
+#include <stdio.h>
+
+int maiorMenor(int valorUm, int valorDois);
+
+int main(){
+
+    int valorUm, valorDois;
+
+    printf("\n Digite dois numeros:\n");
+    printf("\n Numero: ");
+    scanf("%d", &valorUm);
+    printf("\n Numero: ");
+    scanf("%d", &valorDois);
+
+    maiorMenor(valorUm,valorDois);
+
+    return 0;
+}
+
+int maiorMenor(int valorUm, int valorDois){
+  
+    if(valorUm >= valorDois){
+        printf("\n Primeiro Valor é maior ou igual ao segundo");
+    }else{
+        printf("\n Segundo Valor é menor ou igual ao primiero");
+    }
+}
+----------------------------------------------------------------------------------------------
+/*
+11
+*/
+
+------------------------------------------------------------------------------------------------
+/*12. Escreva uma função que receba um número inteiro maior do que zero e retorne a soma de
+todos os seus algarismos. Por exemplo, ao número 251 corresponderá o valor 8 (2 + 5 + 1).
+Se o número lido não for maior do que zero, o programa terminará com a mensagem
+“Número inválido”.*/
+
+#include <stdio.h>
+
+int somaAlgarismo(int numero);
+void recebeValor();
+void condicaoValor();
+
+
+int main(){
+
+    int  numero;
+
+    recebeValor();
+    condicaoValor();
+    somaAlgarismo(numero);
+
+    return 0;
+}
+
+int somaAlgarismo(int numero){
+  int Algarismo = 0;
+    while(numero > 0){
+        Algarismo = Algarismo+(numero%10);
+        numero = numero/10;
+    }
+    return Algarismo;
+}
+
+void recebeValor(){
+    int numero;
+    printf("Digite número > 0: ");
+    scanf("%d", &numero); 
+}
+
+void condicaoValor(){
+  int  numero, Algarismo = 0;
+  if(numero > 0){
+        Algarismo = somaAlgarismo(numero);
+        printf("\n Soma: %d\n", Algarismo);
+    }else{
+        printf("\n Inválido \n");
+    }
+}
+----------------------------------------------------------------------------------
+/*
+13. Faça uma função que receba dois valores numéricos e um símbolo. Este símbolo
+representará a operação que se deseja efetuar com os números. Se o símbolo for ‘+’ deverá
+ser realizada uma adição, se for ‘–‘ uma subtração, se for ‘*’ uma multiplicação e se for ‘/’
+será efetuada uma divisão.
+*/
+
+#include <stdio.h>
+
+int calculoBasico(int valorUm, int valorDois, int variavel);
+
+int main(){
+
+    int valorUm, valorDois;
+    int variavel;
+
+    printf("Digite\n 1 - Adicao (+) \n 2 - Subtracao (-)  \n 3 - 3 Multiplicacao (*) \n 4 - Divisao (\\) \n");
+    printf("Digite um numero conforme mostrado tabela acima: ");
+    scanf("%d", &variavel);
+
+  if((variavel > 0 || variavel < 5)) {
+        printf("Digite o primeiro numero: ");
+        scanf("%d", &valorUm);
+        printf("Digite o segundo numero: ");
+        scanf("%d", &valorDois);
+        
+        calculoBasico(valorUm, valorDois, variavel);
+    }
+
+    return 0;
+}
+
+int calculoBasico(int valorUm, int valorDois, int variavel) {
+  
+    switch(variavel) {
+        case 1:
+            printf("\n Resultado: %d\n", valorUm+valorDois);
+            break;
+        case 2:
+            printf("\n Resultado:  %d\n", valorUm-valorDois);
+            break;
+        case 3:
+            printf("\n Resultado:  %d\n", valorUm*valorDois);
+            break;
+        case 4:
+            printf("\n Resultado:  %d\n", valorUm/valorDois);
+            break;
+        default:
+            printf("Invalido a Opção\n");
+            break;
+    }
+
+    return 0;
+}
+-------------------------------------------------------------------------------------------------[
+/*
+14. Faça uma função que receba a distância em Km e a quantidade de litros de gasolina
+consumidos por um carro em um percurso, calcule o consumo em Km/l e escreva uma
+mensagem de acordo com a tabela abaixo:
+*/
+
+
+#include <stdio.h>
+
+int consumoGasolina(float km, float qtdlitro);
+void capturaValor();
+
+
+int main(){
+
+    float km, qtdlitro;
+    
+    capturaValor();
+    consumoGasolina(km, qtdlitro);
+
+    return 0;
+}
+
+int consumoGasolina(float km, float qtdlitro) {
+    float consumoGasolinaGeral;
+
+    consumoGasolinaGeral = km/qtdlitro;
+
+    if(consumoGasolinaGeral < 8) {
+        printf("Venda o carro!\n");
+    } else if((consumoGasolinaGeral >= 8) && (consumoGasolinaGeral <= 14)) {
+        printf("Econômico!\n");
+    } else{
+        printf("Super econômico!");
+    }
+
+    return 0;
+}
+
+void capturaValor(){
+
+    float km, qtdlitro;
+    
+    printf("\nDistancia em quilometro: ");
+    scanf("%f", &km);
+    printf("\nLitros: ");
+    scanf("%f", &qtdlitro);
+
+    consumoGasolina(km, qtdlitro);
+}
+------------------------------------------------------------------------------------------------
+/*
+15
+*/
+
+-------------------------------------------------------------------------------------------------
+/*
+16. Faça uma função chamada desenha_linha. Ele deve desenhar uma linha na tela usando uma
+sequência de símbolos de igual (Ex.: ===). A função recebe por parâmetro quantos
+sinais de igual serão mostrados.
+*/
+
+#include <stdio.h>
+
+int linha(int valor);
+void captura();
+
+
+int main(){
+  
+    int valor; 
+  
+    captura();
+    linha(valor);
+    
+    return 0;
+}
+
+int linha(int valor) {
+
+    for(int contUm=0; contUm<valor; contUm++) {
+        printf("=");
+    }
+    return 0;
+}
+
+void captura(){
+    
+    int valor;
+  
+    printf("Digite a quantidade de linhas: ");
+    scanf("%d", &valor);
+    linha(valor);
+}
+-----------------------------------------------------------------------------------------------
+/*
+17 
+Faça  uma  função  que  receba  dois  números  inteiros  positivos  por  parâmetro  e  retorne  a 
+soma dos N números inteiros existentes entre eles.
+*/
+
+#include <stdio.h>
+
+int soma(int valorUm, int valorDois);
+
+int main(){
+    
+  int valorUm, valorDois;
+  
+    printf("\nSoma entre valores\n");
+    printf("\nDigite o primeiro e o segundo valor respectavamente: ");
+    scanf("%d%d", &valorUm, &valorDois);
+  
+    printf("\n Soma: %d\n", soma(valorUm, valorDois));
+}
+
+int soma(int valorUm, int valorDois){
+  
+    int soma = 0, aux , cont = 0;
+
+    if (valorUm > valorDois) {
+        aux = valorUm;
+        valorUm = valorDois;
+        valorDois = aux;
+    }
+
+    cont = valorUm+1;
+    while(cont<valorDois){
+
+      soma += cont;
+    
+      cont++;
+    }
+    return soma;
+}
+-----------------------------------------------------------------------------------------------
+/*
+18. Faça uma função que receba por parâmetro dois valores inteiros x e z. Calcule e retorne o
+resultado de x z para o programa principal. Atenção não utilize nenhuma função pronta de
+exponenciação.
+*/
+
+#include <stdio.h>
+#include <math.h>
+
+int expor(int x, int z);
+
+int main(){
+
+    int x, z, calculo;
+
+    printf("Digite os valores de ");
+    printf("x e y respectivamente:  ");
+    scanf("%d%d", &x, &z);
+
+    calculo = expor(x, z);
+
+    printf(" %d", calculo);
+
+    return 0;
+}
+
+int expor(int x, int z) {
+    return pow(x,x);
+}
+--------------------------------------------------------------------------------------------------
+/*
+19 Faça uma função que receba um número inteiro positivo n e calcule o seu fatorial. 
+*/
+
+#include <stdio.h>
+
+int calculofat(int valor);
+
+int main(){
+  
+    int valor;
+
+    printf("\nDigtie um número para calcular o fatorial: ");
+    scanf("%d", &valor);
+    printf("%d\n", calculofat(valor));
+}
+
+int calculofat(int valor){
+    int contUm = 1, mult = 1;
+
+    while(contUm <= valor){
+        mult = mult*contUm;
+    contUm++;
+    }
+    return mult;
+}
+-------------------------------------------------------------------------------------------------
+/*
+20. Escreva uma função para determinar a quantidade de números primos abaixo de N. 
+*/
+
+#include <stdio.h>
+
+int numeroPrimos(int valor);
+
+int main(){
+    
+  int valor;
+  
+    printf("\n Digite a quantidade de primos: ");  
+  scanf("%d", &valor);
+    printf("\n Quantidade de primos: %d", numeroPrimos(valor));
+}
+
+int numeroPrimos(int valor){
+  
+    int contUm , contDois, contTres = 0;
+
+    for (contUm = 2; contUm <= valor; contUm++){
+        for (contDois = 2; contDois < contUm; contDois++){
+            if (contUm % contDois == 0)
+                break;
+          }
+        if (contDois == contUm)
+        contTres++;
+    }
+    return contTres;
+}
+--------------------------------------------------------------------------------------------------
+/*
+21. Crie uma função que receba como parâmetro um valor inteiro e gere como saída 
+n linhas com pontos de exclamação, conforme o exemplo abaixo (para n = 5): 
+*/
+
+#include <stdio.h>
+
+int triangulo(int valor);
+
+int main(){
+
+    int valor;
+
+    printf("Digite quantidade de linha: ");
+    scanf("%d", &valor);
+
+    triangulo(valor);
+
+    return 0;
+}
+
+int triangulo(int valor) {
+    
+    int contUm, contDois;
+    
+    for(int contUm=0; contUm<valor; contUm = contUm+1) {
+        for(contDois=0; contDois<=contUm; contDois = contDois+1) {
+            printf("!");
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+--------------------------------------------------------------------------------------------------
+/*
+23. Escreva uma função que gera um triângulo lateral de altura 2*n-1 e n largura. 
+Por exemplo, a saída para n = 4 seria: 
+*/
+
+#include <stdio.h>
+
+int triangulo(int valor);
+
+
+int main(){
+
+    int valor;
+
+    printf("Digite quantidade de linha: ");
+    scanf("%d", &valor);
+
+    triangulo(valor);
+
+    return 0;
+}
+
+int triangulo(int valor) {
+    
+    int contUm, contDois;
+    
+    for(contUm=0; contUm<valor; contUm = contUm+1) {
+        for(contDois=0; contDois<=contUm; contDois=contDois+1) {
+            printf("*");
+        }
+        printf("\n");
+    }
+    for(contUm=0; contUm<valor; contUm=contUm+1) {
+        for(contDois=valor; contDois>contUm; contDois = contDois-1) {
+            printf("*");
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+--------------------------------------------------------------------------------------------------
+/*
+24. Escreva uma função que gera um triângulo de altura e lados n e base 2*n-1. 
+Por exemplo, a saída para n = 6 seria: 
+*/
+
+
+#include <stdio.h>
+
+int triangulo(int valor);
+
+int main(){
+
+    int valor;
+    printf("Digite quantidade de linha: ");
+    scanf("%d", &valor);
+
+    triangulo(valor);
+
+    return 0;
+}
+
+int triangulo(intp     
+    $        contUm, contDois, func = 1;
+
+    for(contUm=valor; contUm>0; contUm = contUm - 1) {
+        for(contDois=contUm-1; contDois>0; contDois = contDois-1) {
+            printf(" ");
+        }
+            for(contDois=0; contDois<func; contDois = contDois + 1) {
+                printf("*");
+            }
+            printf("\n");
+            func = func + 2;
+        }
+    return 0;
+}
+
