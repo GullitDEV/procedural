@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <string.h>
+#define GERAL 100
+
+ int main(){
+
+   char str[GERAL];
+   int textoNulo = 0, contUm = 0, letra;
+
+    printf("Digite o texto: ");
+
+    fgets(str, GERAL, stdin);
+    textoNulo = strlen(str);
+
+    while(contUm < textoNulo){
+
+     if(str[contUm] == 'r' && str[contUm+1] >= 'a' && str[contUm+1] <= 'z'){
+       str[contUm] = 'l';
+       if(str[contUm+1] == 'R' || str[contUm+1] == 'r')
+            for(letra = contUm; letra<textoNulo; letra++)
+                str[letra+1]=str[letra+2];
+    }
+    else if(str[contUm] == 'R' && str[contUm+1] >= 'A' && str[contUm+1] <= 'Z'){
+       str[contUm] = 'L';
+       if(str[contUm+1] == 'R' || str[contUm+1] == 'r')
+        for(letra = contUm; letra<textoNulo; letra++)
+            str[letra+1]=str[letra+2];
+    }
+
+    contUm++;
+   }
+
+   printf("\n%s \n", str);
+
+   return 0;
+}
