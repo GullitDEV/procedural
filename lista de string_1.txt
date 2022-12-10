@@ -1,0 +1,241 @@
+/*
+01. Faça um programa que leia uma string e a imprima.
+*/
+
+#include <stdio.h>
+
+int main(){
+
+  char texto[100];
+
+  printf("\nDigite uma frase: ");
+
+  fgets(texto,100,stdin);
+  printf("%s ", texto);
+
+  return 0;
+}
+-------------------------------------------------------
+/*
+02. Faça  um  programa  que  conte  o  número  de 1’s que aparecem  em  uma  string.  Exemplo:
+“0011001” -> 3
+*/
+#include <stdio.h>
+
+int main(){
+  
+  char valor[100];
+  int count = 0;
+
+  printf("\nDigite número: ");
+  fgets(valor, 100, stdin);
+  
+  int i = 0; 
+  while(valor[i]!= '\0'){
+    if (valor[i] == '1'){
+      count++;
+    }
+    i++;
+  }
+  printf("A string: %d 1's\n", count);
+
+  return 0;
+}
+-------------------------------------------------------------
+/*
+03. Faça um programa que receba uma palavra e a imprima de trás-para-frente.
+*/
+#include <stdio.h>
+
+int main(){
+  
+  char palavra[100];
+  int cont = 0;
+  
+  printf("\nDigite uma palavra: ");
+  fgets(palavra, 100, stdin);
+
+  while(palavra[cont] !='\0'){
+    cont++;
+  }while(cont >= 0){
+    printf(" %c", palavra[cont--]);
+  }
+
+  return 0;
+}
+-----------------------------------------------------------
+/*
+04 - Faça um programa que receba uma palavra e calcule quantas vogais (a, e, i, o, u) possui essa 
+palavra.  Entre  com  um  caractere  (vogal  ou  consoante)  e  substitua  todas  as  vogais  da  palavra 
+dada por esse caractere. 
+*/
+#include <stdio.h>
+
+int main(){
+  char frase[100], geral;
+
+  printf("\nDigite uma frase: ");
+
+  fgets(frase, 100, stdin);
+
+  int cont = 0;
+  int contDois = 0;
+  
+  while(frase[cont] != '\0'){
+    
+    if (frase[cont] == 'a' || frase[cont] == 'e' || frase[cont] == 'i' || frase[cont] == 'o' || frase[cont] == 'u'){
+      frase[cont] = geral;
+      contDois++;
+    }
+    cont++;
+  }
+  printf("A string tem %d vogais\n", contDois);
+  printf("%s", frase);
+}
+-----------------------------------------------------------------
+/*
+05. Escreva um programa para converter uma cadeia de caracteres de letras maiúsculas em letras 
+minúsculas. Dica: some 32 dos caracteres cujo código ASCII está entre 65 e 90.
+*/
+#include <stdio.h>
+
+int main(){
+  
+  char frase[100];
+
+  printf("\nDigite um texto: ");
+  
+  fgets(frase, 100, stdin);
+
+  int cont = 0;
+
+  while(frase[cont] != '\0'){
+    if (frase[cont] >= 'A' && frase[cont] <= 'Z'){
+      frase[cont] += 32;
+    }
+    cont++;
+  }
+  printf("%s", frase);
+}
+----------------------------------------------------------------------
+/*
+06. Leia uma cadeia de caracteres e converta todos os caracteres para maiúscula. Dica: subtraia 
+32 dos caracteres cujo código ASCII está entre 97 e 122.
+*/
+#include <stdio.h>
+
+int main(){
+  
+  char frase[100];
+
+  printf("\nDigite uma frase: ");
+  
+  fgets(frase, 100, stdin);
+
+  int cont = 0; 
+  while(frase[cont] != '\0'){
+    if (frase[cont] >= 'a' && frase[cont] <= 'z'){
+      frase[cont] -= 32;
+    }
+    cont++;
+  }
+  printf("%s", frase);
+}
+-------------------------------------------------------------------
+/*
+07- Leia um vetor contendo letras de uma frase inclusive os espaços em branco. Retirar os 
+espaços em branco do vetor e depois escrever o vetor resultante.
+*/
+#include <stdio.h>
+
+int main(){
+  
+  char frase[100];
+
+  printf("\n Digite uma frase: ");
+
+  fgets(frase, 100, stdin);
+
+  int contUm = 0;
+  int contDois = 0;
+  while(frase[contUm] != '\0'){
+    if (frase[contUm] != ' '){
+      frase[contDois] = frase[contUm];
+      contDois++;
+    }
+    contUm++;
+  }
+  frase[contDois] = '\0';
+  printf("%s", frase);
+
+  return 0;
+}
+
+---------------------------------------------------------------------------
+/*
+10
+Ler o nome e o valor de uma determinada mercadoria de uma loja. Sabendo que o desconto
+para pagamento à vista é de 10% sobre o valor total, calcular o valor a ser pago à vista. Escrever
+o nome da mercadoria, o valor total, o valor do desconto e o valor a ser pago à vista.
+*/
+
+
+#include <stdio.h>
+
+int main(){
+  
+  char nome[100];
+  float valor, desconto, valorLiquido;
+
+  printf("\nDigite a mercadoria: ");
+  fgets(nome, 100, stdin);
+  
+  printf("\nDigite o valor da mercadoria: ");
+  scanf("%f", &valor);
+  
+  desconto = valor * 0.1;
+  
+  printf("\nNome: %s", nome);
+  printf("Valor Liquido: %.2f\n", valor);
+  printf("Desconto: %.2f\n", desconto);
+  printf("Valor a vista: %.2f\n", (valor-desconto));
+
+  return 0;
+}
+
+-----------------------------------------------------------------------
+/*
+12
+O código de César é uma das mais simples e conhecidas técnicas de criptografia. É um tipo 
+de substituição na qual cada letra do texto  substituída por outra, que se apresenta no alfabeto 
+abaixo dela um número fixo de vezes. Por exemplo, com uma troca de três posições, ‘A’ seria 
+substituído por ‘D’, ‘B’ se tornaria ‘E’, e  assim por diante. Implemente  um  programa que  faça 
+uso desse Código de César (3 posições), entre com uma string e retorne a string codificada.  
+Exemplo: 
+String: a ligeira raposa marrom saltou sobre o cachorro cansado 
+Nova string: D OLJHLUD UDSRVD PDUURP VDOWRX VREUH R FDFKRUUR FDQVDGR
+*/
+
+#include <stdio.h>
+
+int main(){
+  char frase[100];
+
+  printf("\nDigite uma frase: ");
+  
+  fgets(frase, 100, stdin);
+
+  int contUm = 0;
+  
+  while(frase[contUm] != '\0'){
+    if (frase[contUm] >= 'A' && frase[contUm] <= 'Z'){
+      frase[contUm] = (frase[contUm] - 'A' + 3) % 26 + 'A';
+    }else if (frase[contUm] >= 'a' && frase[contUm] <= 'z'){
+      frase[contUm] = (frase[contUm] - 'a' + 3) % 26 + 'a';
+    }
+    contUm++;
+  }
+  printf("%s", frase);
+}
+------------------------------------------------------------------------------
+
